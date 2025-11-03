@@ -42,7 +42,6 @@ class Bird:
         elif self.x < self.boundary_left:
             self.x = self.boundary_left
             self.dir = self.face_dir = 1
-        pass
 
 
     def draw(self):
@@ -52,6 +51,5 @@ class Bird:
         else:
             self.image.clip_composite_draw((int(self.frame) % 5) * 183, (int(self.frame) // 5) * 168,
                                             180, 167, 0, 'h', self.x, self.y, 180, 167)
-        pass
 
 
