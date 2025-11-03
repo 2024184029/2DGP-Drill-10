@@ -21,7 +21,7 @@ FLY_SPEED_PPS   = (FLY_SPEED_MPS * PIXEL_PER_METER)
 class Bird:
     def __init__(self, boundary_left = 100, boundary_right = 1500):
 
-        self.frames = 5
+        self.frames = 15
         # self.x, self.y = 400, 90
         self.x, self.y = random.randrange(100,700), random.randrange(200,300)
         # self.frame = 0
@@ -47,9 +47,11 @@ class Bird:
 
     def draw(self):
         if self.face_dir == 1:  # 오른쪽
-            self.image.clip_draw(int(self.frame) * 180, 170, 180, 170, self.x, self.y)
+            self.image.clip_draw((int(self.frame) % 5) * 183, (int(self.frame) // 5) * 168,
+                                 180, 167, self.x, self.y)
         else:
-            self.image.clip_composite_draw(int(self.frame) * 180, 170, 180, 170, 0, 'h', self.x, self.y, 180, 170)
+            self.image.clip_composite_draw((int(self.frame) % 5) * 183, (int(self.frame) // 5) * 168,
+                                            180, 167, 0, 'h', self.x, self.y, 180, 170)
         pass
 
 
