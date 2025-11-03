@@ -1,7 +1,7 @@
 from pickle import FRAME
 
 from pico2d import load_image, get_time
-
+import random
 import game_world
 import game_framework
 from state_machine import StateMachine
@@ -22,8 +22,10 @@ class Bird:
     def __init__(self, boundary_left = 100, boundary_right = 1500):
 
         self.frames = 5
-        self.x, self.y = 400, 90
-        self.frame = 0
+        # self.x, self.y = 400, 90
+        self.x, self.y = random.randrange(100,700), random.randrange(200,300)
+        # self.frame = 0
+        self.frame = random.randrange(0, 4)
         self.face_dir = 1
         self.dir = 1
         self.image = load_image('bird_animation.png')
