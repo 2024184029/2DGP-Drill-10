@@ -1,10 +1,6 @@
-from pickle import FRAME
-
 from pico2d import load_image, get_time
 import random
-import game_world
 import game_framework
-from state_machine import StateMachine
 
 # Bird Action Speed
 TIME_PER_ACTION = 0.5
