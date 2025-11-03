@@ -51,7 +51,7 @@ class Bird:
                                  180, 167, self.x, self.y)
         else:
             self.image.clip_composite_draw((int(self.frame) % 5) * 183, (int(self.frame) // 5) * 168,
-                                            180, 167, 0, 'h', self.x, self.y, 180, 170)
+                                            180, 167, 0, 'h', self.x, self.y, 180, 167)
         pass
 
 
