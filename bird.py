@@ -12,11 +12,14 @@ ACTION_PER_TIME = 1.0 / TIME_PER_ACTION
 FRAME_PER_ACTION = 8
 
 # Bird Fly Speed
-PIXEL_PER_METER = (10.0 / 0.3)  # 10 pixel 30 cm
+PIXEL_PER_METER = (10.0 / 0.3)  # 10 pixel 30 cm / 1 pixel = 3 cm
 FLY_SPEED_KMPH  = 20.0
 FLY_SPEED_MPM   = (FLY_SPEED_KMPH * 1000.0 / 60.0)
 FLY_SPEED_MPS   = (FLY_SPEED_MPM / 60.0)
 FLY_SPEED_PPS   = (FLY_SPEED_MPS * PIXEL_PER_METER)
+
+# Bird Size
+BIRD_SIZE = 1.0 # 1 meter
 
 class Bird:
     def __init__(self, boundary_left = 100, boundary_right = 1500):
@@ -45,11 +48,14 @@ class Bird:
 
 
     def draw(self):
+        h = int(BIRD_SIZE * PIXEL_PER_METER)
+        w = int(180 * (h / 167))
+
         if self.face_dir == 1:  # 오른쪽
             self.image.clip_draw((int(self.frame) % 5) * 183, (int(self.frame) // 5) * 168,
-                                 180, 167, self.x, self.y)
+                                 180, 167, self.x, self.y, w, h)
         else:
             self.image.clip_composite_draw((int(self.frame) % 5) * 183, (int(self.frame) // 5) * 168,
-                                            180, 167, 0, 'h', self.x, self.y, 180, 167)
+                                            180, 167, 0, 'h', self.x, self.y, w, h)
 
 
